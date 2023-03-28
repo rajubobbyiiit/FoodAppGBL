@@ -17,7 +17,7 @@ public class TopFewNewRestrntsStrategy implements RecommendStrategy{
 		return  restaurants.stream()
 				.filter(Objects::nonNull)
 				.filter(restaurant ->restaurant.isRecommended())
-				.sorted(Comparator.comparing(Restaurant::getOnboardedTime)
+				.sorted(Comparator.comparing(Restaurant::getOnboardedTime).reversed()
 		          .thenComparing(Restaurant::getRating).reversed())
 				.limit(top4)
 				.collect(Collectors.toList());
